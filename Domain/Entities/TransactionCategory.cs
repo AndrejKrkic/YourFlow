@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Domain.Entities
 {
-    internal class TransactionCategory
+    public class TransactionCategory
     {
     }
 }

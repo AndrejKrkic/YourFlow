@@ -44,11 +44,11 @@ namespace Application.Transactions
                 throw new KeyNotFoundException("Račun nije pronađen.");
             }
 
-            //if (account != userId)
-            //{
-            //    throw new UnauthorizedAccessException(
-            //        "Korisnik nema pristup ovom računu.");
-            //}
+            if (account.UserId != userId)
+            {
+                throw new UnauthorizedAccessException(
+                    "Korisnik nema pristup ovom računu.");
+            }
 
             var category = await _categoryRepository.GetByIdAsync(
                 request.CategoryId,

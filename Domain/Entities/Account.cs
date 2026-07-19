@@ -7,6 +7,8 @@ namespace Domain.Entities
 {
     public class Account
     {
+        public Guid AccountId { get; set; }
+        public Guid UserId { get; private set; }
         public decimal Balance { get; set; }
         public Currency Currency { get; set; }
 

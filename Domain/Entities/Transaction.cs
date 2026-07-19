@@ -20,6 +20,6 @@ namespace Domain.Entities
         public Guid CategoryId { get; set; }
         public TransactionCategory Category { get; set; } = null!;
 
-        public string UserId { get; set; } = null!;
+        public Guid UserId { get; private set; }
     }
 }

@@ -5,7 +5,7 @@ using Domain.Entities;
 
 namespace Application.Common.Interfaces
 {
-    internal interface ITransactionRepository
+    public interface ITransactionRepository
     {
         Task AddAsync(
         Transaction transaction,

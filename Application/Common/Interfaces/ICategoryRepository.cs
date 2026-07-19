@@ -5,7 +5,7 @@ using Domain.Entities;
 
 namespace Application.Common.Interfaces
 {
-    internal interface ICategoryRepository
+    public interface ICategoryRepository
     {
         Task<TransactionCategory?> GetByIdAsync(
         Guid id,

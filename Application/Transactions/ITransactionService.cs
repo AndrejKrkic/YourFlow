@@ -7,9 +7,7 @@ namespace Application.Transactions
 {
     public interface ITransactionService
     {
-        Task<ExecuteTransactionResult> ExecuteAsync(
-        ExecuteTransactionRequest request,
-        Guid userId,
+        Task<ExecuteTransactionResult> ExecuteAsync(ExecuteTransactionRequest request,
         CancellationToken cancellationToken = default);
     }
 }

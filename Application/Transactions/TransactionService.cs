@@ -27,7 +27,7 @@ namespace Application.Transactions
             _unitOfWork = unitOfWork;
         }
 
-        public async Task<ExecuteTransactionResult> ExecuteAsync(ExecuteTransactionRequest request, Guid userId, CancellationToken cancellationToken = default)
+        public async Task<ExecuteTransactionResult> ExecuteAsync(ExecuteTransactionRequest request, CancellationToken cancellationToken = default)
         {
             if (request.Amount <= 0)
             {
@@ -44,11 +44,11 @@ namespace Application.Transactions
                 throw new KeyNotFoundException("Račun nije pronađen.");
             }
 
-            if (account.UserId != userId)
-            {
-                throw new UnauthorizedAccessException(
-                    "Korisnik nema pristup ovom računu.");
-            }
+            //if (account.UserId != userId)
+            //{
+            //    throw new UnauthorizedAccessException(
+            //        "Korisnik nema pristup ovom računu.");
+            //}
 
             var category = await _categoryRepository.GetByIdAsync(
                 request.CategoryId,

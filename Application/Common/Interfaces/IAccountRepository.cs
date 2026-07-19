@@ -9,6 +9,7 @@ namespace Application.Common.Interfaces
     public interface IAccountRepository
     {
         Task<Account?> GetByIdAsync(Guid id, CancellationToken cancellationToken = default);
+        Task AddAsync(Account account, CancellationToken cancellationToken = default);
         void Update(Account account);
     }
 }

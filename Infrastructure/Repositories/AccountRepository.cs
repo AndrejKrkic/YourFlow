@@ -25,6 +25,11 @@ namespace Infrastructure.Repositories
                cancellationToken);
         }
 
+        public async Task AddAsync(Account account, CancellationToken cancellationToken = default)
+        {
+            await _dbContext.Accounts.AddAsync(account, cancellationToken);
+        }
+
         public void Update(Account account)
         {
             _dbContext.Accounts.Update(account);

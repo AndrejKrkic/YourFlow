@@ -1,3 +1,4 @@
+using Application;
 using Infrastructure;
 
 namespace YourFlow
@@ -12,6 +13,7 @@ namespace YourFlow
 
             builder.Services.AddControllers();
 
+            builder.Services.AddApplication();
             builder.Services.AddInfrastructure(builder.Configuration);
 
             builder.Services.AddEndpointsApiExplorer();

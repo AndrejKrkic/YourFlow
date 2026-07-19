@@ -1,9 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Application.Common.Interfaces;
+﻿using Application.Common.Interfaces;
 using Domain.Entities;
 using Infrastructure.Persistence;
+using Microsoft.EntityFrameworkCore;
+using System;
+using System.Collections.Generic;
+using System.Text;
 
 namespace Infrastructure.Repositories
 {
@@ -16,9 +17,19 @@ namespace Infrastructure.Repositories
             _dbContext = dbContext;
         }
 
-        public Task AddAsync(Transaction transaction, CancellationToken cancellationToken = default)
+        public async Task AddAsync(Transaction transaction, CancellationToken cancellationToken = default)
         {
-            throw new NotImplementedException();
+            await _dbContext.Transactions.AddAsync(transaction, cancellationToken);
+        }
+
+        public Task<Transaction?> GetByIdAsync(
+        Guid id,
+        CancellationToken cancellationToken = default)
+        {
+            return _dbContext.Transactions
+                .FirstOrDefaultAsync(
+                    x => x.CategoryId == id,
+                    cancellationToken);
         }
     }
 }
